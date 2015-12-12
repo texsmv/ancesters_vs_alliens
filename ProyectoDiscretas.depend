@@ -1,0 +1,90 @@
+# depslib dependency file v1.0
+1449812077 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/main.cpp
+	<SFML/Graphics.hpp>
+	<Objeto.h>
+	<Personaje.h>
+	<Mapa.h>
+	<Juego.h>
+
+1449622594 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Objeto.cpp
+	"Objeto.h"
+
+1449809428 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Objeto.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<iostream>
+	<vector>
+
+1449718559 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Personaje.cpp
+	"Personaje.h"
+
+1449843459 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Personaje.h
+	<Objeto.h>
+	<Proyectil.h>
+
+1449858926 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Mapa.h
+	<iostream>
+	<SFML/Graphics.hpp>
+
+1449859384 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Mapa.cpp
+	"Mapa.h"
+	<vector>
+
+1449623976 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Proyectil.cpp
+	"Proyectil.h"
+
+1449624064 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Proyectil.h
+	"Objeto.h"
+
+1449858060 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Juego.cpp
+	"Juego.h"
+	<math.h>
+	<cstdlib>
+	<ctime>
+	<string>
+
+1449852499 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Juego.h
+	<Personaje.h>
+	<Proyectil.h>
+	<Mapa.h>
+	<Nave.h>
+	<Objeto_animado.h>
+	<Hogar.h>
+
+1449636007 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Nave.cpp
+	"Nave.h"
+	<cstdlib>
+	<ctime>
+	<math.h>
+
+1449635691 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Nave.h
+	<Objeto.h>
+
+1449812476 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Objeto_animado.cpp
+	"Objeto_animado.h"
+	<cstdlib>
+	<ctime>
+	<math.h>
+
+1449807594 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Objeto_animado.h
+	<Objeto.h>
+
+1449679976 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Menu.cpp
+	"Menu.h"
+
+1449679938 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Menu.h
+	<Boton.h>
+	<vector>
+
+1449679895 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Boton.cpp
+	"Boton.h"
+
+1449679861 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Boton.h
+	<Objeto.h>
+
+1449810647 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Hogar.cpp
+	"Hogar.h"
+
+1449811663 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Hogar.h
+	<Objeto.h>
+
