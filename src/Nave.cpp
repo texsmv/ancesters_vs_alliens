@@ -25,6 +25,9 @@ Nave::Nave(string nombre_imagen, float alto, float ancho,int** matriz){
     this->angle=0;
     this->mov2_nave=new sf::Clock;
 
+    this->textura_hit=new sf::Texture;
+    this->textura_hit->loadFromFile("hit1_0.png");
+
     string nomb_anim_mov[4]={"move_0.png","move_1.png","move_2.png","move_3.png"};
 
     for (int i=0;i<4;i++){
@@ -41,6 +44,9 @@ Nave::Nave(string nombre_imagen, float alto, float ancho,int** matriz){
         this->anim_muerte.push_back(nuevo);
     }
 
+
+    this->punto_medio=this->getPosition()+sf::Vector2f{ancho/2,alto/2};
+
     this->anim_actual=anim_mov;
     this->anim_anterior=anim_actual;
     this->t_animacion=new sf::Clock;
@@ -50,6 +56,7 @@ Nave::Nave(string nombre_imagen, float alto, float ancho,int** matriz){
     this->bip.setBuffer(buffer);
     bip.play();
 */
+    this->t_vida= new sf::Clock;
 }
 
 void Nave::animar(float t){
@@ -107,7 +114,14 @@ void Nave::verif_choque(float tam_bloque){
                 this->move(0,-1);
             }
         }
+
     }
+
+    if (this->getPosition().y<30){
+        this->move(0,abs(sin(angle)*t_cambio));
+    }
+
+
 
 }
 
@@ -138,6 +152,13 @@ void Nave::update(){
         t_muerte->restart();
     }
     this->animar(0.3);
+
+    this->punto_medio=this->getPosition()+sf::Vector2f{ancho/2,alto/2};
+
+    if(vida!=last_vida){
+        this->setTexture(*textura_hit);
+    }
+    last_vida=vida;
 }
 
 Nave::Nave()

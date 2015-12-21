@@ -35,29 +35,49 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Algoritmo.h" />
+		<Unit filename="include/Arquero.h" />
 		<Unit filename="include/Boton.h" />
+		<Unit filename="include/Cleopatra.h" />
 		<Unit filename="include/Hogar.h" />
+		<Unit filename="include/Inca.h" />
 		<Unit filename="include/Juego.h" />
 		<Unit filename="include/Mapa.h" />
 		<Unit filename="include/Menu.h" />
 		<Unit filename="include/Nave.h" />
+		<Unit filename="include/Nube.h" />
+		<Unit filename="include/Obj_anim_temp.h" />
 		<Unit filename="include/Objeto.h" />
 		<Unit filename="include/Objeto_animado.h" />
+		<Unit filename="include/ParticleSystem.h" />
 		<Unit filename="include/Personaje.h" />
+		<Unit filename="include/Pet.h" />
 		<Unit filename="include/Proyectil.h" />
+		<Unit filename="include/green_arrow.h" />
+		<Unit filename="include/light_arrow.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Algoritmo.cpp" />
+		<Unit filename="src/Arquero.cpp" />
 		<Unit filename="src/Boton.cpp" />
+		<Unit filename="src/Cleopatra.cpp" />
 		<Unit filename="src/Hogar.cpp" />
+		<Unit filename="src/Inca.cpp" />
 		<Unit filename="src/Juego.cpp" />
 		<Unit filename="src/Mapa.cpp" />
 		<Unit filename="src/Menu.cpp" />
 		<Unit filename="src/Nave.cpp" />
+		<Unit filename="src/Nube.cpp" />
+		<Unit filename="src/Obj_anim_temp.cpp" />
 		<Unit filename="src/Objeto.cpp">
 			<Option virtualFolder="src/" />
 		</Unit>
 		<Unit filename="src/Objeto_animado.cpp" />
+		<Unit filename="src/ParticleSystem.cpp" />
 		<Unit filename="src/Personaje.cpp" />
+		<Unit filename="src/Pet.cpp" />
 		<Unit filename="src/Proyectil.cpp" />
+		<Unit filename="src/green_arrow.cpp" />
+		<Unit filename="src/light_arrow.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

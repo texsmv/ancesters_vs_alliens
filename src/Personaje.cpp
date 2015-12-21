@@ -1,5 +1,9 @@
 #include "Personaje.h"
-
+#include <math.h>
+float distan(sf::Vector2f a, sf::Vector2f b){
+    float dist=sqrt(pow((b.x-a.x),2)+pow((b.y-a.y),2));
+    return dist;
+}
 
 Personaje::Personaje(std::string nombreArchivo, float alto, float ancho,sf::Event * evento, sf::RenderWindow * win, int ** matriz,float alto_bloque,float ancho_bloque, bool sec_player){
     this->alto=alto;
@@ -38,6 +42,48 @@ Personaje::Personaje(std::string nombreArchivo, float alto, float ancho,sf::Even
 
 }
 
+void Personaje::skill_activado(vector <Nave*> naves){
+
+}
+void Personaje::update_pet(){
+    this->pet->setPosition(this->getPosition().x-30,this->getPosition().y-50);
+    this->pet->update();
+}
+
+void Personaje::draw_pet(){
+    this->win->draw(*this->pet);
+}
+void Personaje::verif_colisiones_proyectiles(vector<Nave*> naves){
+    for (int i=0;i<this->proyectiles.size();i++){
+        for(int j=0;j<naves.size();j++){
+            if (distan(this->proyectiles.at(i)->punto_medio,naves.at(j)->punto_medio)<this->proyectiles.at(i)->rango_colision){
+                this->s_impacto.play();
+                this->proyectiles.at(i)->start_last_anim=true;
+                if(naves.at(j)->vida>0){
+                    if(naves.at(j)->vida<=0){
+                        this->score=this->score+134;
+                        this->counter_ultimate+=50;
+                    }
+                    naves.at(j)->vida-=this->proyectiles.at(i)->damage;
+                }
+
+        }
+
+    }
+    }
+}
+
+void Personaje::eliminar_proyectiles(){
+    for(int i=0;i<this->proyectiles.size();i++){
+        if(this->proyectiles.at(i)->destroy==true){
+            delete this->proyectiles.at(i);
+            this->proyectiles.erase(this->proyectiles.begin()+i);
+        }
+
+    }
+
+}
+
 
 void Personaje::setEvento(sf::Event*evento){
     this->evento=evento;
@@ -45,9 +91,11 @@ void Personaje::setEvento(sf::Event*evento){
 }
 
 
-void Personaje::update(){
+void Personaje::update(vector<Nave*>naves){
+    this->set_naves_pointers(naves);
     this->anim_anterior=this->anim_actual;
     this->Mover();
+    this->verif_disparos();
 
 
 }
@@ -72,6 +120,38 @@ void Personaje::animar(float t){
         }
     }
 
+}
+
+void Personaje::verif_disparos(){
+    if (sf::Keyboard::isKeyPressed(k_down)){
+        this->disparar();
+        this->draw_bala=true;
+        if(this->derecha==true){
+            this->anim_actual=shoot_der;
+        }
+        else{
+            this->anim_actual=shoot_izq;
+        }
+    }
+}
+
+void Personaje::set_naves_pointers(vector<Nave*> naves){
+    this->naves=naves;
+}
+
+void Personaje::ataque_melee(){
+    if(this->velocidad_ataque_melee->getElapsedTime().asSeconds()>0.4){
+        for(int i=0;i<naves.size();i++){
+            if(distan(this->getPosition(),naves.at(i)->getPosition())<this->rango_melee&&naves.at(i)->vida>0){
+                this->naves.at(i)->vida-=this->damage_melee;
+                if(this->naves.at(i)->vida<=0){
+                    this->score+=154;
+                    this->counter_ultimate+=15;
+                }
+            }
+        }
+        this->velocidad_ataque_melee->restart();
+    }
 }
 
 void Personaje::Mover(){
@@ -111,16 +191,7 @@ void Personaje::Mover(){
         }
 
     }
-    if (sf::Keyboard::isKeyPressed(k_down)){
-        this->disparar();
-        this->draw_bala=true;
-        if(this->derecha==true){
-            this->anim_actual=shoot_der;
-        }
-        else{
-            this->anim_actual=shoot_izq;
-        }
-    }
+
 
     this->velocidad_eje_y+=salto;
 
@@ -179,14 +250,37 @@ void Personaje::Mover(){
 
 }
 
+void Personaje::draw_obj_animados(){
+    for (int i=0;i<this->efectos.size();i++){
+        this->win->draw(*this->efectos.at(i));
+    }
+
+    if (this->b_pet==true){
+        this->draw_pet();
+    }
+
+}
+
+void Personaje::update_obj_animados(){
+    for(int i=0;i<this->efectos.size();i++){
+        this->efectos.at(i)->update();
+
+    }
+    for(int i=0;i<this->efectos.size();i++){
+        if(this->efectos.at(i)->destroy==true){
+            delete this->efectos.at(i);
+            this->efectos.erase(efectos.begin()+i);
+        }
+    }
+}
 
 void Personaje::draw_proyectiles(){
 
     for (int i=0;i<this->proyectiles.size();i++){
 
-        proyectiles.at(i)->update();
         win->draw(*proyectiles.at(i));
     }
+    this->draw_obj_animados();
 
 }
 
@@ -199,6 +293,7 @@ void Personaje::update_proyectiles(){
         if(this->proyectiles.at(i)->t_vida->getElapsedTime().asSeconds()>2){
             delete this->proyectiles.at(i);
             this->proyectiles.erase(proyectiles.begin()+i);
+
         }
 
     }

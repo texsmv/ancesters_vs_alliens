@@ -25,11 +25,17 @@ class Nave: public Objeto
         bool start_destroy=false;
         bool destroy=false;
         sf::Clock * t_muerte;
+        sf::Clock * t_vida;
+        sf::Texture * textura_hit;
         vector <sf::Texture*> anim_muerte;
         vector <sf::Texture*> anim_mov;
         vector <sf::Texture*> anim_die;
-
+        float vida=40;
+        float last_vida=40;
+    friend class Arquero;
     friend class Juego;
+    friend class Personaje;
+    friend class Cleopatra;
 };
 
 #endif // NAVE_H

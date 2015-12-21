@@ -16,6 +16,21 @@ Objeto::Objeto(std::string nombreArchivo, float alto, float ancho){
 
 }
 
+Objeto::Objeto(sf::Texture*textura, float alto, float ancho){
+
+    this->alto = alto;
+    this->ancho = ancho;
+
+
+
+
+    this ->setTexture(*textura);
+
+    this->Coordenadas=this->getPosition();
+
+
+
+}
 void Objeto::cambiar_anim(vector<sf::Texture*> nueva_anim){
     this->anim_actual=nueva_anim;
     this->t_animacion->restart();

@@ -16,19 +16,20 @@ float distancia(sf::Vector2f a, sf::Vector2f b){
 
 
 Juego::Juego(sf::RenderWindow* win,sf::Event* evento, int** matriz, int** matriz_objetos,int filas,int columnas){
+
+
     std::string nombres_suelo[]={"pasto.png"};
-    std::string nombres_bloques[]={"pasto.png","cielo.png"};
+    std::string nombres_bloques[]={"bsc_0.png","bsc_1.png","bsc_2.png","bsc_3.png","bsc_4.png","bsc_5.png","cielo_2.png","Corner1_0.png","Corner1_1.png","Corner1_2.png","Corner1_3.png",
+    "enH0_0.png","Corner2_0.png","Corner2_1.png","Corner2_2.png","Corner2_3.png","Grass1_0.png","enV1_1.png"};
     this->filas=filas;
     this->columnas=columnas;
     this->win=win;
     this->evento=evento;
     this->matriz=matriz;
-    this->mapa= new Mapa(40, 40,nombres_bloques,nombres_suelo,2,28,30, matriz, win);
+    this->mapa= new Mapa(40, 40,nombres_bloques,nombres_suelo,18,28,30, matriz, win);
     this->tipo_letra.loadFromFile("Chardons.ttf");
-    this->player= new Personaje("stand1_0.png", 66, 64,evento, win, matriz,40,40,false);
-    if(multiplayer==true){
-        this->player2=new Personaje("walk1_0_i.png", 65, 82,evento, win, matriz,40,40,true);
-    }
+    this->player= new Cleopatra("stand1_0.png", 66, 64,evento, win, matriz,40,40,false);
+
 
     this->t_naves=new sf::Clock;
     string nombres_planta[6]={"flame_a_0001.png","flame_a_0002.png","flame_a_0003.png","flame_a_0004.png","flame_a_0005.png","flame_a_0006.png"};
@@ -47,136 +48,24 @@ Juego::Juego(sf::RenderWindow* win,sf::Event* evento, int** matriz, int** matriz
             }
         }
     }
+    /*
+    Objeto_animado *nuevo;
+        string nombres_u[22]={"screen_0.png","screen_1.png","screen_2.png","screen_3.png","screen_4.png","screen_5.png","screen_6.png","screen_7.png","screen_8.png","screen_9.png","screen_10.png",
+        "screen_11.png","screen_12.png","screen_13.png","screen_14.png","screen_15.png","screen_16.png","screen_17.png","screen_18.png","screen_19.png","screen_20.png","screen_21.png"};
 
-
+        nuevo = new Objeto_animado(nombres_u, 22,400,100,0.1,2);
+    obj_animados.push_back(nuevo);
+*/
     //////Texturas para las animaciones
     //// walk_left
-    string nomb_anim_der[4]={"walk1_0.png","walk1_1.png","walk1_2.png","walk1_3.png"};
 
-    for (int i=0;i<4;i++){
-        sf::Texture* nuevo=new sf::Texture;
-        nuevo->loadFromFile(nomb_anim_der[i]);
-        this->player->anim_der.push_back(nuevo);
-    }
-
-    string nomb_anim_izq[4]={"walk2_0.png","walk2_1.png","walk2_2.png","walk2_3.png"};
-    for (int j=0;j<4;j++){
-        sf::Texture* nuevo=new sf::Texture;
-        nuevo->loadFromFile(nomb_anim_izq[j]);
-        this->player->anim_izq.push_back(nuevo);
-    }
-
-    //////  stand_left
-    string nomb_stand_der[5]={"stand1_0.png","stand1_1.png","stand1_2.png","stand1_3.png","stand1_4.png"};
-
-    for (int i=0;i<5;i++){
-        sf::Texture* nuevo=new sf::Texture;
-        nuevo->loadFromFile(nomb_stand_der[i]);
-        this->player->stand_der.push_back(nuevo);
-    }
-    //////  stand_left
-    string nomb_stand_izq[5]={"stand2_0.png","stand2_1.png","stand2_2.png","stand2_3.png","stand2_4.png"};
-
-    for (int i=0;i<5;i++){
-        sf::Texture* nuevo=new sf::Texture;
-        nuevo->loadFromFile(nomb_stand_izq[i]);
-        this->player->stand_izq.push_back(nuevo);
-    }
-    ////// shoot_der
-    string nomb_shoot_der[3]={"shoot1_0.png","shoot1_1.png","shoot1_2.png"};
-
-    for (int i=0;i<3;i++){
-        sf::Texture* nuevo=new sf::Texture;
-        nuevo->loadFromFile(nomb_shoot_der[i]);
-        this->player->shoot_der.push_back(nuevo);
-    }
-    ////// shoot_izq
-    string nomb_shoot_izq[3]={"shoot2_0.png","shoot2_1.png","shoot2_2.png"};
-
-    for (int i=0;i<3;i++){
-        sf::Texture* nuevo=new sf::Texture;
-        nuevo->loadFromFile(nomb_shoot_izq[i]);
-        this->player->shoot_izq.push_back(nuevo);
-    }
-    ////// swing_der
-    string nomb_swing_der[3]={"swingO2_0.png","swingO2_1.png","swingO2_2.png"};
-
-    for (int i=0;i<3;i++){
-        sf::Texture* nuevo=new sf::Texture;
-        nuevo->loadFromFile(nomb_swing_der[i]);
-        this->player->swing_der.push_back(nuevo);
-    }
 
 
     if(this->multiplayer==true){
-        //// walk_left
-        string nomb_anim_der_i[4]={"walk1_0_i.png","walk1_1_i.png","walk1_2_i.png","walk1_3_i.png"};
+        this->player2=new Arquero("walk1_0_i.png", 65, 82,evento, win, matriz,40,40,true);
 
-        for (int i=0;i<4;i++){
-            sf::Texture* nuevo=new sf::Texture;
-            nuevo->loadFromFile(nomb_anim_der_i[i]);
-            this->player2->anim_der.push_back(nuevo);
-        }
-
-        string nomb_anim_izq_i[4]={"walk2_0_i.png","walk2_1_i.png","walk2_2_i.png","walk2_3_i.png"};
-        for (int j=0;j<4;j++){
-            sf::Texture* nuevo=new sf::Texture;
-            nuevo->loadFromFile(nomb_anim_izq_i[j]);
-            this->player2->anim_izq.push_back(nuevo);
-        }
-
-        //////  stand_left
-        string nomb_stand_der_i[5]={"stand1_0_i.png","stand1_1_i.png","stand1_2_i.png","stand1_3_i.png","stand1_4_i.png"};
-
-        for (int i=0;i<5;i++){
-            sf::Texture* nuevo=new sf::Texture;
-            nuevo->loadFromFile(nomb_stand_der_i[i]);
-            this->player2->stand_der.push_back(nuevo);
-        }
-        //////  stand_left
-        string nomb_stand_izq_i[5]={"stand2_0_i.png","stand2_1_i.png","stand2_2_i.png","stand2_3_i.png","stand2_4_i.png"};
-
-        for (int i=0;i<5;i++){
-            sf::Texture* nuevo=new sf::Texture;
-            nuevo->loadFromFile(nomb_stand_izq_i[i]);
-            this->player2->stand_izq.push_back(nuevo);
-        }
-        ////// shoot_der
-        string nomb_shoot_der_i[5]={"shoot1_0_i.png","shoot1_1_i.png","shoot1_2_i.png","shoot1_3_i.png","shoot1_4_i.png"};
-
-        for (int i=0;i<5;i++){
-            sf::Texture* nuevo=new sf::Texture;
-            nuevo->loadFromFile(nomb_shoot_der_i[i]);
-            this->player2->shoot_der.push_back(nuevo);
-        }
-        ////// shoot_izq
-        string nomb_shoot_izq_i[5]={"shoot2_0_i.png","shoot2_1_i.png","shoot2_2_i.png","shoot2_3_i.png","shoot2_4_i.png"};
-
-        for (int i=0;i<5;i++){
-            sf::Texture* nuevo=new sf::Texture;
-            nuevo->loadFromFile(nomb_shoot_izq_i[i]);
-            this->player2->shoot_izq.push_back(nuevo);
-        }
     }
 
-
-    /////
-    this->player->t_animacion=new sf::Clock;
-
-    this->player->anim_actual=this->player->stand_der;
-
-    //////
-    if (this->multiplayer==true){
-        this->player2->t_animacion=new sf::Clock;
-        this->player2->anim_actual=this->player2->stand_der;
-        this->player2->setPosition(40*4,40*6);
-        this->player2->Coordenadas=this->player2->getPosition();
-    }
-
-    ///////
-
-    this->player->setPosition(40*5,40*5);
-    this->player->Coordenadas=this->player->getPosition();
 
     ////music
     t_music=new sf::Clock;
@@ -191,23 +80,28 @@ Juego::Juego(sf::RenderWindow* win,sf::Event* evento, int** matriz, int** matriz
     this->score_2->setPosition(1000,100);
 }
 
-
+void Juego::verif_naves(){
+    for(int i=0;i<this->naves.size();i++){
+        if(this->naves.at(i)->destroy==true||this->naves.at(i)->t_vida->getElapsedTime().asSeconds()>14){
+            delete this->naves.at(i);
+            this->naves.erase(naves.begin()+i);
+            break;
+        }
+        if(this->naves.at(i)->vida<=0){
+            this->naves.at(i)->start_destroy=true;
+        }
+    }
+}
 void Juego::colisiones(){
     for (int i=0;i<this->player->proyectiles.size();i++){
         for(int j=0;j<this->naves.size();j++){
-            if (distancia(this->player->proyectiles.at(i)->getPosition(),this->naves.at(j)->getPosition())<30){
+            if (distancia(this->player->proyectiles.at(i)->punto_medio,this->naves.at(j)->punto_medio)<this->player->proyectiles.at(i)->rango_colision){
                 this->player->s_impacto.play();
                 delete this->player->proyectiles.at(i);
                 this->player->proyectiles.erase(player->proyectiles.begin()+i);
                 this->naves.at(j)->start_destroy=true;
                 this->player->score=this->player->score+134;
 
-
-                break;
-            }
-            if(this->naves.at(j)->destroy==true){
-                delete this->naves.at(j);
-                this->naves.erase(naves.begin()+j);
 
                 break;
             }
@@ -218,17 +112,12 @@ void Juego::colisiones(){
     if(this->multiplayer==true){
         for (int i=0;i<this->player2->proyectiles.size();i++){
             for(int j=0;j<this->naves.size();j++){
-                if (distancia(this->player2->proyectiles.at(i)->getPosition(),this->naves.at(j)->getPosition())<30){
+                if (distancia(this->player2->proyectiles.at(i)->punto_medio,this->naves.at(j)->punto_medio)<this->player2->proyectiles.at(i)->rango_colision){
                     this->player2->s_impacto.play();
                     delete this->player2->proyectiles.at(i);
                     this->player2->proyectiles.erase(player2->proyectiles.begin()+i);
                     this->naves.at(j)->start_destroy=true;
                     this->player2->score=this->player2->score+134;
-                    break;
-                }
-                if(this->naves.at(j)->destroy==true){
-                    delete this->naves.at(j);
-                    this->naves.erase(naves.begin()+j);
                     break;
                 }
 
@@ -247,6 +136,7 @@ void Juego::draw(){
     for(int i=0;i<this->naves.size();i++){
         this->win->draw(*this->naves.at(i));
     }
+    this->win->draw(*player);
     this->player->draw_proyectiles();
 
 
@@ -254,14 +144,17 @@ void Juego::draw(){
     for(int i=0;i<obj_animados.size();i++){
         win->draw(*obj_animados.at(i));
     }
-    this->win->draw(*player);
+
     if (this->multiplayer==true){
         this->win->draw(*player2);
         this->player2->draw_proyectiles();
+
     }
+
 
     this->win->draw(*score_1);
     this->win->draw(*score_2);
+
 }
 
 void Juego::verifHogar(){
@@ -272,8 +165,8 @@ void Juego::verifHogar(){
 
 
     for (int i=0;i<this->naves.size();i++){
-        float  dist=distancia(this->casa->Coordenadas,this->naves.at(i)->getPosition());
-        if(dist<180&&this->naves.at(i)->start_destroy!=true){
+        float  dist=distancia(this->casa->punto_medio,this->naves.at(i)->getPosition());
+        if(dist<80&&this->naves.at(i)->start_destroy!=true){
             this->naves.at(i)->start_destroy=true;
             this->casa->quitarVida(1);
             if (this->casa->vida==16){
@@ -307,6 +200,7 @@ void Juego::verifHogar(){
 
 void Juego::update(){
     ////music
+
     this->score_1->setString(to_string(this->player->score));
     this->score_2->setString(to_string(this->player2->score));
 
@@ -316,28 +210,36 @@ void Juego::update(){
     }
 
     if (this->actualizar==true){
+            for(int i=0;i<obj_animados.size();i++){
+                obj_animados.at(i)->animar();
+        }
+        this->player->animar(0.5);
+        this->player->update(this->naves);
+        this->player->update_proyectiles();
 
-    for(int i=0;i<obj_animados.size();i++){
-        obj_animados.at(i)->animar();
-    }
-    this->player->animar(0.5);
-    this->player->update();
-    this->player->update_proyectiles();
+        if (this->multiplayer==true){
+            this->player2->animar(0.5);
+            this->player2->update(this->naves);
+            this->player2->update_proyectiles();
+        }
 
-    if (this->multiplayer==true){
-        this->player2->animar(0.5);
-        this->player2->update();
-        this->player2->update_proyectiles();
-    }
+        for(int i=0;i<this->naves.size();i++){
+            this->naves.at(i)->verif_choque(40);
+            this->naves.at(i)->update();
 
-    for(int i=0;i<this->naves.size();i++){
-        this->naves.at(i)->verif_choque(40);
-        this->naves.at(i)->update();
-    }
-    this->verifHogar();
+        }
+        this->verifHogar();
 
-    this->crearNaves();
-    this->colisiones();
+        this->crearNaves();
+        //this->colisiones();
+
+        this->player->verif_colisiones_proyectiles(this->naves);
+        this->player2->verif_colisiones_proyectiles(this->naves);
+        this->player->eliminar_proyectiles();
+        this->player2->eliminar_proyectiles();
+        this->verif_naves();
+
+        //this->verif_naves();
     }
     if (this->mostrar==true){
         this->draw();
@@ -347,7 +249,7 @@ void Juego::update(){
 }
 
 void Juego::crearNaves(){
-    if (this->t_naves->getElapsedTime().asSeconds()>1){
+    if (this->t_naves->getElapsedTime().asSeconds()>0.4){
         Nave * nuevo = new Nave("move_0.png",50,30,matriz);
         this->naves.push_back(nuevo);
         this->t_naves->restart();

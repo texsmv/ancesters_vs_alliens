@@ -24,6 +24,10 @@ Objeto_animado::Objeto_animado(string nombres_archivos[],int num_imag,float posx
 
 }
 
+void Objeto_animado::update(){
+    this->animar();
+}
+
 void Objeto_animado::animar(){
     if(this->r_frecuencia->getElapsedTime().asSeconds()>t_frecuencia){
         pos_imag++;

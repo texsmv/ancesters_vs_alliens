@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include <SFML/Graphics.hpp>
+
 using namespace std;
 
 class Mapa
@@ -22,7 +23,12 @@ class Mapa
         std::string* nombres_bloques;
         sf::Sprite ** images;
         sf::Sprite ** bloques_suelo;
+        sf::Clock * t_inicio;
+        sf::Sprite ** bloques;
+        sf::Sprite * pasto;
+
         friend class Fantasma;
+
         friend class Pacman;
 };
 

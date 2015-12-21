@@ -1,72 +1,81 @@
 # depslib dependency file v1.0
-1449812077 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/main.cpp
+1450328996 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/main.cpp
 	<SFML/Graphics.hpp>
 	<Objeto.h>
 	<Personaje.h>
 	<Mapa.h>
 	<Juego.h>
 
-1449622594 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Objeto.cpp
+1450146483 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Objeto.cpp
 	"Objeto.h"
 
-1449809428 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Objeto.h
+1450502593 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Objeto.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<iostream>
 	<vector>
 
-1449718559 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Personaje.cpp
+1450496263 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Personaje.cpp
 	"Personaje.h"
+	<math.h>
 
-1449843459 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Personaje.h
+1450494615 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Personaje.h
 	<Objeto.h>
+	<Obj_anim_temp.h>
 	<Proyectil.h>
+	<green_arrow.h>
+	<Nave.h>
+	<Pet.h>
+	<Objeto_animado.h>
 
-1449858926 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Mapa.h
+1450502593 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Mapa.h
 	<iostream>
 	<SFML/Graphics.hpp>
 
-1449859384 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Mapa.cpp
+1450491616 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Mapa.cpp
 	"Mapa.h"
 	<vector>
 
-1449623976 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Proyectil.cpp
+1450056416 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Proyectil.cpp
 	"Proyectil.h"
 
-1449624064 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Proyectil.h
+1450138324 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Proyectil.h
 	"Objeto.h"
 
-1449858060 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Juego.cpp
+1450491003 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Juego.cpp
 	"Juego.h"
 	<math.h>
 	<cstdlib>
 	<ctime>
 	<string>
 
-1449852499 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Juego.h
+1449956618 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Juego.h
 	<Personaje.h>
 	<Proyectil.h>
 	<Mapa.h>
 	<Nave.h>
 	<Objeto_animado.h>
 	<Hogar.h>
+	<Arquero.h>
+	<Inca.h>
+	<Cleopatra.h>
 
-1449636007 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Nave.cpp
+1450495461 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Nave.cpp
 	"Nave.h"
 	<cstdlib>
 	<ctime>
 	<math.h>
 
-1449635691 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Nave.h
+1450495426 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Nave.h
 	<Objeto.h>
 
-1449812476 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Objeto_animado.cpp
+1450023271 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Objeto_animado.cpp
 	"Objeto_animado.h"
 	<cstdlib>
 	<ctime>
 	<math.h>
 
-1449807594 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Objeto_animado.h
+1450155502 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Objeto_animado.h
 	<Objeto.h>
 
 1449679976 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Menu.cpp
@@ -82,9 +91,83 @@
 1449679861 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Boton.h
 	<Objeto.h>
 
-1449810647 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Hogar.cpp
+1450158193 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Hogar.cpp
 	"Hogar.h"
 
 1449811663 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Hogar.h
 	<Objeto.h>
+
+1450503352 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Arquero.h
+	<Personaje.h>
+	<green_arrow.h>
+	<Nave.h>
+	<Obj_anim_temp.h>
+	<ParticleSystem.h>
+
+1450503507 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Arquero.cpp
+	"Arquero.h"
+	<math.h>
+	<cstdlib>
+	<ctime>
+	<string>
+
+1450057775 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Inca.cpp
+	"Inca.h"
+
+1450057775 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Inca.h
+	<Personaje.h>
+
+1450056416 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/green_arrow.cpp
+	"green_arrow.h"
+
+1449956919 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/green_arrow.h
+	<Proyectil.h>
+
+1450135855 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Cleopatra.h
+	<Personaje.h>
+	<light_arrow.h>
+	<Objeto_animado.h>
+
+1450492633 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Cleopatra.cpp
+	"Cleopatra.h"
+	<math.h>
+
+1450063454 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/light_arrow.h
+	<Proyectil.h>
+
+1450063454 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/light_arrow.cpp
+	"light_arrow.h"
+
+1450134937 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Obj_anim_temp.cpp
+	"Obj_anim_temp.h"
+
+1450153908 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Obj_anim_temp.h
+	<Objeto_animado.h>
+
+1450053180 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Algoritmo.cpp
+	"Algoritmo.h"
+	<iostream>
+	<stdlib.h>
+	<time.h>
+
+1450052619 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Algoritmo.h
+
+1450110451 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Pet.cpp
+	"Pet.h"
+
+1450110116 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Pet.h
+	<Objeto.h>
+
+1450464958 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/Nube.cpp
+	"Nube.h"
+
+1450464975 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/Nube.h
+	<Objeto.h>
+
+1450503120 /home/texs/Documents/c++-pruebas/ProyectoDiscretas/include/ParticleSystem.h
+	<SFML/Graphics.hpp>
+	<math.h>
+
+1450503129 source:/home/texs/Documents/c++-pruebas/ProyectoDiscretas/src/ParticleSystem.cpp
+	"ParticleSystem.h"
 

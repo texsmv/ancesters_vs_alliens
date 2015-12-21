@@ -6,31 +6,13 @@
 #include <Nave.h>
 #include <Objeto_animado.h>
 #include <Hogar.h>
-
+#include <Arquero.h>
+#include <Inca.h>
+#include <Cleopatra.h>
 class Juego
 {
     public:
-        //Este constructor es largo, lo dividire en partes
-        Juego(
-        //primero las partes que son necesaras para todas las clases
-        sf::RenderWindow*, sf::Event*, int**,int**,int,int
-/*
-        //necesarias para el mapa
-        ,float, float,string[], int, int ,int ,
-        // necesarias para personaje
-        string, float, float,
-        //Proyectil
-        string, float, float , sf::Vector2f
-*/
-
-
-
-
-
-        );
-
-
-
+        Juego(sf::RenderWindow*, sf::Event*, int**,int**,int,int);
         Juego();
         void verifHogar();
         void update();
@@ -38,6 +20,7 @@ class Juego
         void draw();
         void crearNaves();
         void colisiones();
+        void verif_naves();
         virtual ~Juego();
     protected:
     private:
